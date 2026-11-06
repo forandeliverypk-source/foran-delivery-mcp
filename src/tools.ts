@@ -466,7 +466,7 @@ export function registerTools(server: McpServer) {
   // ---------- orders ----------
   server.registerTool("foran_place_order", {
     title: "Place order",
-    description: "Check out the current cart to a saved address. First call WITHOUT confirm to get the order summary and show it to the customer. Only after the customer clearly says yes, call again with confirm=true to place the real order. Payment: cash_on_delivery or wallet (Foran Money).",
+    description: "Check out the current cart to a saved address. First call WITHOUT confirm to get the order summary and show it to the customer. Only after the customer clearly says yes, call again with confirm=true to place the real order. Payment: cash_on_delivery or wallet (Foran Money). Orders placed here carry the MCP fee (Rs 150) instead of the app's processing fee; always show it in the summary.",
     inputSchema: {
       session_key: sessionKey,
       address_id: z.number().int().describe("From foran_my_addresses."),
@@ -509,7 +509,9 @@ export function registerTools(server: McpServer) {
       items: rows.map((x) => `${x.quantity} × ${x.name} — Rs ${x.line_total_rs}`),
       items_subtotal_rs: subtotal,
       delivery_charge_rs: q ? q.delivery_charge_rs : undefined,
-      estimated_total_rs: q ? Math.round((subtotal + q.delivery_charge_rs + (a.rider_tip_rs || 0)) * 100) / 100 : undefined,
+      mcp_fee_rs: q ? q.mcp_fee_rs : 150,
+      mcp_fee_note: "MCP fee for orders placed through Claude / AI assistants (instead of the app's processing fee).",
+      estimated_total_rs: q ? Math.round((subtotal + q.delivery_charge_rs + q.mcp_fee_rs + (a.rider_tip_rs || 0)) * 100) / 100 : undefined,
       delivery: q
         ? `${q.delivery_note ? q.delivery_note + ". " : ""}Distance about ${q.distance_km} km. A coupon (e.g. FORANDELIVERY on a first order) can lower it; Foran confirms the final total when the order is placed.`
         : "Delivery fee, discounts and the final total are calculated by Foran when the order is placed.",
@@ -551,7 +553,7 @@ export function registerTools(server: McpServer) {
       donation_amount: 0,
       gift_packaging: "0",
     };
-    const d = await api.post("/api/v1/customer/order/place", ctx, body);
+    const d = await api.post("/api/v1/customer/order/place", { ...ctx, mcp: true }, body);
     const orderId = d.order_id;
     let placed: any = { order_id: orderId, total_rs: d.total_ammount ?? d.total_amount };
     try {

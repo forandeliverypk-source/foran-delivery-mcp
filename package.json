@@ -1,6 +1,6 @@
 {
   "name": "foran-delivery-mcp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Official MCP server for Foran Delivery customers: browse groceries and food from local stores in Bahria Town Karachi and Hyderabad, build a cart and place cash-on-delivery orders from Claude, ChatGPT and any MCP client.",
   "license": "MIT",
   "author": "Foran Private Limited <contact@forandelivery.com>",

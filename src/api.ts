@@ -17,6 +17,8 @@ export interface Ctx {
   lat?: number;
   lng?: number;
   token?: string;
+  /** send the MCP server key: the order is recorded as an MCP order (MCP fee instead of the processing fee) */
+  mcp?: boolean;
 }
 
 export class ForanApiError extends Error {
@@ -39,6 +41,7 @@ function headers(ctx: Ctx = {}): Record<string, string> {
     h["longitude"] = String(ctx.lng);
   }
   if (ctx.token) h["Authorization"] = `Bearer ${ctx.token}`;
+  if (ctx.mcp && (process.env.FORAN_CLAUDE_KEY || "").length >= 32) h["X-Foran-Claude-Key"] = process.env.FORAN_CLAUDE_KEY as string;
   return h;
 }
 

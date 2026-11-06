@@ -12,7 +12,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 import { registerTools } from "./tools.js";
 
-export const VERSION = "1.1.0";
+export const VERSION = "1.2.0";
 
 const INSTRUCTIONS = `Foran Delivery is a quick-commerce service for groceries (Mart) and restaurant food (Bites) from local stores, live in Bahria Town Karachi and Hyderabad, Pakistan. Prices are in Pakistani Rupees (Rs).
 How to help a customer:

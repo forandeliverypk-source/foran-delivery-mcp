@@ -23,6 +23,10 @@ Hosted endpoint:  https://mcp.forandelivery.com/mcp   (Streamable HTTP, no insta
 
 The assistant always shows the order summary first and only places the order after you say **yes**.
 
+## Fees
+
+Orders placed through this MCP server (Claude, ChatGPT or any AI assistant) carry an **MCP fee of Rs 150**, shown in the order summary before you confirm. It replaces the processing fee charged in the Foran app. Delivery charge, store minimum order and Foran's free-delivery rules apply as usual.
+
 ## Tools
 
 | Tool | Login | What it does |

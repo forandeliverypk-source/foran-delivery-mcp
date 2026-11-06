@@ -87,6 +87,7 @@ const GUIDE = {
   ],
   can_i_order_things_not_in_the_app: "Yes. Send the product name or a photo. Foran makes a custom order, buys it from a nearby store and confirms the final price with you before delivery.",
   delivery_charge: "Depends on the store and distance (shown before you confirm). Groceries (Mart) start from Rs 195 in Bahria Town Karachi and Rs 150 in Hyderabad. First order: free delivery with code FORANDELIVERY. Orders of Rs 2,999 or more (items) get free delivery.",
+  mcp_fee: "Orders placed through Claude or another AI assistant (the Foran MCP) have an MCP fee of Rs 150, shown in the summary before you confirm. It replaces the processing fee charged in the Foran app.",
   minimum_order: "Each store has a small minimum order (about Rs 300-550), shown on the store page.",
   payment: ["Cash on delivery", "Foran Money (wallet): top up by sending JazzCash / Easypaisa / NayaPay to 0333-9988891 and WhatsApp the screenshot to the same number."],
   rewards: "4% cashback in Foran Money on every delivered order.",
@@ -150,7 +151,7 @@ export function registerClaudeTools(server: McpServer) {
     title: "Custom order (Claude order)",
     description: "Create a Foran order from what the customer sent: product names, a shopping list, or photos. Mix catalogue items (item_id) with custom items that are not in the app (name + estimated_price_rs). All items must be bought from ONE store: pick the nearest open store that has most items (foran_list_stores / foran_search_products). The order lands in the Foran admin panel as a pending 'Claude order' with the photos attached; the team confirms custom prices before dispatch.\n" +
       "Who can use it: a logged-in customer (session_key; the order goes on their account) or Foran staff (staff_session; any customer name + phone, e.g. a WhatsApp customer).\n" +
-      "ALWAYS call first WITHOUT confirm: it returns the quote (items, delivery charge, total, warnings). Show it to the user, and only after a clear yes call again with the same inputs and confirm=true. Cash on delivery.",
+      "ALWAYS call first WITHOUT confirm: it returns the quote (items, delivery charge, MCP fee Rs 150, total, warnings). Show it to the user, and only after a clear yes call again with the same inputs and confirm=true. Cash on delivery.",
     inputSchema: {
       session_key: z.string().optional().describe("Customer mode: session_key from foran_login."),
       staff_session: z.string().optional().describe("Staff mode: staff_session from foran_staff_login."),
