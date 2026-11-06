@@ -1,0 +1,22 @@
+[Unit]
+Description=Foran Delivery MCP server (customer)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=foranmcp
+Group=foranmcp
+WorkingDirectory=/opt/foran-mcp
+EnvironmentFile=/opt/foran-mcp/.env
+ExecStart=/usr/bin/node /opt/foran-mcp/dist/index.js --http
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+MemoryMax=512M
+
+[Install]
+WantedBy=multi-user.target

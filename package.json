@@ -1,0 +1,53 @@
+{
+  "name": "foran-delivery-mcp",
+  "version": "1.1.0",
+  "description": "Official MCP server for Foran Delivery customers: browse groceries and food from local stores in Bahria Town Karachi and Hyderabad, build a cart and place cash-on-delivery orders from Claude, ChatGPT and any MCP client.",
+  "license": "MIT",
+  "author": "Foran Private Limited <contact@forandelivery.com>",
+  "homepage": "https://www.forandelivery.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forandeliverypk-source/foran-delivery-mcp.git"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "chatgpt",
+    "grocery",
+    "food-delivery",
+    "pakistan",
+    "karachi",
+    "hyderabad",
+    "foran"
+  ],
+  "type": "module",
+  "bin": {
+    "foran-delivery-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:http": "node dist/index.js --http",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "express": "^5.3.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^22.20.5",
+    "@types/express": "^5.0.6"
+  }
+}
