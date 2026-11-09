@@ -65,7 +65,7 @@ const ABOUT = {
   hours: "9 AM to 3 AM, every day",
   rules: [
     "One store per order (all items in a basket come from the same store).",
-    "4% cashback on every delivered order, credited to Foran Money (wallet).",
+    "4% cashback on every delivered order from a Foran store (e.g. Foran Bazar), credited to Foran Money (wallet).",
     "First order: free delivery with promo code FORANDELIVERY (new customers).",
     "Payment: cash on delivery, or Foran Money wallet balance.",
     "Foran Money top-up: send via JazzCash, Easypaisa or NayaPay to 0333-9988891, then WhatsApp the screenshot to the same number.",
@@ -560,7 +560,7 @@ export function registerTools(server: McpServer) {
       const o = await api.get("/api/v1/customer/order/track", { token: s.token }, { order_id: orderId });
       placed = f.order(o);
     } catch { /* keep minimal */ }
-    return f.json({ status: "ORDER PLACED", ...placed, message: d.message, track_link: `${f.WEB}/track/${orderId}`, cashback: "4% cashback goes to Foran Money after delivery." });
+    return f.json({ status: "ORDER PLACED", ...placed, message: d.message, track_link: `${f.WEB}/track/${orderId}`, cashback: "On Foran stores, 4% cashback goes to Foran Money after delivery." });
   }));
 
   server.registerTool("foran_my_orders", {

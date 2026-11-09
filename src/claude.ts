@@ -90,7 +90,7 @@ const GUIDE = {
   mcp_fee: "Orders placed through Claude or another AI assistant (the Foran MCP) have an MCP fee of Rs 150, shown in the summary before you confirm. It replaces the processing fee charged in the Foran app.",
   minimum_order: "Each store has a small minimum order (about Rs 300-550), shown on the store page.",
   payment: ["Cash on delivery", "Foran Money (wallet): top up by sending JazzCash / Easypaisa / NayaPay to 0333-9988891 and WhatsApp the screenshot to the same number."],
-  rewards: "4% cashback in Foran Money on every delivered order.",
+  rewards: "4% cashback in Foran Money on every delivered order from Foran stores.",
   hours: "9 AM to 3 AM, every day (each store has its own hours).",
   fresh_and_loose_items: "Loose items (milk, yogurt, vegetables, meat) are sold by weight or litre; 1 kg of milk is about 1 litre. Ask if you want a packaged brand instead (Milkpak, Olper's, Dayfresh...).",
   changes_and_cancellation: "You can cancel or change an order until the store starts packing it. Contact WhatsApp +92 333 998 8891.",
@@ -111,7 +111,7 @@ const STATUS_HELP: Record<string, string> = {
   processing: "The store is packing the order.",
   handover: "Packed and handed to the rider.",
   picked_up: "On the way to the customer.",
-  delivered: "Delivered. 4% cashback goes to Foran Money.",
+  delivered: "Delivered. On Foran stores, 4% cashback goes to Foran Money.",
   canceled: "Cancelled.",
   failed: "Delivery failed. Foran will contact the customer.",
 };

@@ -22,7 +22,7 @@ How to help a customer:
 4. Add items with foran_cart_add, pick a saved address with foran_my_addresses, then call foran_place_order WITHOUT confirm, show the summary, and only after the customer says yes call it again with confirm=true.
 5. Customer sends a list, product names or photos (even items not in the app)? Use foran_custom_order: one store, catalogue items by item_id, other items by name with an honest estimated_price_rs; quote first, confirm=true only after a yes. It lands in the Foran admin as a "Claude order". Foran staff log in with foran_staff_login to order for WhatsApp customers.
 6. "Where is my order?" → foran_order_status (live stage, timeline, rider) or foran_track_order (order_id + phone). How Foran works / how to buy → foran_buying_guide.
-Never invent prices, stock or delivery promises; delivery is usually 40-60 minutes. Foran gives 4% cashback to Foran Money on every delivered order, and new customers get free delivery on their first order with code FORANDELIVERY. Support: WhatsApp +92 333 998 8891.`;
+Never invent prices, stock or delivery promises; delivery is usually 40-60 minutes. Foran gives 4% cashback to Foran Money on every delivered order from Foran stores (e.g. Foran Bazar), and new customers get free delivery on their first order with code FORANDELIVERY. Support: WhatsApp +92 333 998 8891.`;
 
 export function buildServer(): McpServer {
   const server = new McpServer(

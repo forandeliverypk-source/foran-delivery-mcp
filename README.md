@@ -107,7 +107,7 @@ Claude Desktop `claude_desktop_config.json`:
 
 ## Good to know
 - One store per order: everything in a basket comes from the same store.
-- 4% cashback to Foran Money on every delivered order. New customers get free delivery on their first order with code `FORANDELIVERY`.
+- 4% cashback to Foran Money on every delivered order from Foran stores (e.g. Foran Bazar). New customers get free delivery on their first order with code `FORANDELIVERY`.
 - Payment: cash on delivery, or Foran Money. To top up Foran Money, send JazzCash, Easypaisa or NayaPay to 0333-9988891, then WhatsApp the screenshot to the same number.
 - Support: WhatsApp **+92 333 998 8891** · contact@forandelivery.com
 
